@@ -1,19 +1,16 @@
-import pygame
-from Ball import Ball
-
 class PlayerBall(Ball):
 	def __init__(self, pos):
-		Ball.__init__(self, "images/Player/pballbu.png", [0,0], pos)
-		self.upImages = [pygame.image.load("images/Player/pballru.png"),
+		#Ball.__init__(self, "images/Player/pballbu.png", [0,0], pos)
+		#self.upImages = [pygame.image.load("images/Player/pballru.png"),
 						 pygame.image.load("images/Player/pballgu.png"),
 						 pygame.image.load("images/Player/pballbu.png")]
-		self.downImages = [pygame.image.load("images/Player/pballrd.png"),
+		#self.downImages = [pygame.image.load("images/Player/pballrd.png"),
 						   pygame.image.load("images/Player/pballgd.png"),
 						   pygame.image.load("images/Player/pballbd.png")]
-		self.leftImages = [pygame.image.load("images/Player/pballrl.png"),
+		#self.leftImages = [pygame.image.load("images/Player/pballrl.png"),
 						   pygame.image.load("images/Player/pballgl.png"),
 						   pygame.image.load("images/Player/pballbl.png")]
-		self.rightImages = [pygame.image.load("images/Player/pballrr.png"),
+		#self.rightImages = [pygame.image.load("images/Player/pballrr.png"),
 						    pygame.image.load("images/Player/pballgr.png"),
 						    pygame.image.load("images/Player/pballbr.png")]
 		self.facing = "up"
@@ -30,7 +27,7 @@ class PlayerBall(Ball):
 	def update(self, width, height):
 		Ball.update(self, width, height)
 		self.animate()
-		self.Changed = False
+		self.changed = False
 		
 	def collideWall(self, width, height):
 		if not self.didBounceX:
@@ -50,7 +47,7 @@ class PlayerBall(Ball):
 			self.waitCount += 1
 		else:
 			self.waitCount = 0
-			self.facingChanged = True
+			self.changed = True
 			if self.frame < self.maxFrame:
 				self.frame += 1
 			else:
@@ -94,3 +91,6 @@ class PlayerBall(Ball):
 			self.speedx = -self.maxSpeed
 		elif direction == "stop left":
 			self.speedx = 0
+
+
+
