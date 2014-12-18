@@ -1,6 +1,6 @@
 import pygame, sys, random
 from AI_Class1 import AI_class1
-from PlayerBall import PlayerBall
+from Player_Ball import Player_Ball
 from HUD import Text
 from HUD import Score
 from Button import Button
