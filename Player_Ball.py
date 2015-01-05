@@ -1,18 +1,10 @@
 class PlayerBall(Ball):
 	def __init__(self, pos):
 		#Ball.__init__(self, "images/Player/pballbu.png", [0,0], pos)
-		#self.upImages = [pygame.image.load("images/Player/pballru.png"),
-						 pygame.image.load("images/Player/pballgu.png"),
-						 pygame.image.load("images/Player/pballbu.png")]
-		#self.downImages = [pygame.image.load("images/Player/pballrd.png"),
-						   pygame.image.load("images/Player/pballgd.png"),
-						   pygame.image.load("images/Player/pballbd.png")]
-		#self.leftImages = [pygame.image.load("images/Player/pballrl.png"),
-						   pygame.image.load("images/Player/pballgl.png"),
-						   pygame.image.load("images/Player/pballbl.png")]
-		#self.rightImages = [pygame.image.load("images/Player/pballrr.png"),
-						    pygame.image.load("images/Player/pballgr.png"),
-						    pygame.image.load("images/Player/pballbr.png")]
+		 self.upImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1up.png")]
+		self.downImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1down.png"),
+		self.leftImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1left.png"),
+		self.rightImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1right.png"),
 		self.facing = "up"
 		self.changed = False
 		self.images = self.upImages
