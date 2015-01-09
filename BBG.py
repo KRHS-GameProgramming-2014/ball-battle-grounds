@@ -36,7 +36,12 @@ while True:
     for bully in balls:
         for victem in balls:
             bully.collideBall(victem)
-            
+             
+        
+	
+	for ball in balls:
+		if not ball.living:
+			balls.remove(ball)
     bgColor = r,g,b
     screen.fill(bgColor)
     for ball in balls:
