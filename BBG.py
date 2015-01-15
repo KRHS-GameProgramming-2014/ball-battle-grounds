@@ -35,8 +35,7 @@ score = Score([width-80, height-25], "Score: ", 36)
 run = False
 
 startButton = Button([width/2, height-300], 
-                     "images/Buttons/Start Base.png", 
-                     "images/Buttons/Start Clicked.png")
+                     "RSC/objects/images/Start Base.png")
 
 while True:
     while not run:
@@ -58,8 +57,8 @@ while True:
         pygame.display.flip()
         clock.tick(60)
         
-    bgImage = pygame.image.load("images/Screens/Main Screen.png").convert()
-    bgRect = bgImage.get_rect()
+    #bgImage = pygame.image.load("images/Screens/Main Screen.png").convert()
+    #bgRect = bgImage.get_rect()
     
     while run:
         for event in pygame.event.get():
@@ -87,7 +86,7 @@ while True:
             
         bgColor = r,g,b
         screen.fill(bgColor)
-        screen.blit(bgImage, bgRect)
+        #screen.blit(bgImage, bgRect)
         for ball in balls:
             screen.blit(ball.image, ball.rect)
         screen.blit(player.image, player.rect)
