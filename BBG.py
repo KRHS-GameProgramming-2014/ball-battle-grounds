@@ -35,8 +35,8 @@ score = Score([width-80, height-25], "Score: ", 36)
 run = False
 
 startButton = Button([width/2, height-300], 
-                 "images/Buttons/Start Base.png", 
-                 "images/Buttons/Start Clicked.png")
+                     "images/Buttons/Start Base.png", 
+                     "images/Buttons/Start Clicked.png")
 
 while True:
     while not run:
@@ -50,47 +50,47 @@ while True:
             if event.type == pygame.MOUSEBUTTONUP:
                 if startButton.release(event.pos):
                     run = True
-                
-    bgColor = r,g,b
-    screen.fill(bgColor)
-    screen.blit(bgImage, bgRect)
-    screen.blit(startButton.image, startButton.rect)
-    pygame.display.flip()
-    clock.tick(60)
-    
-bgImage = pygame.image.load("images/Screens/Main Screen.png").convert()
-bgRect = bgImage.get_rect()
-while run:
- for event in pygame.event.get():
-    if event.type == pygame.QUIT: sys.exit()
-    
-if len(balls) < 10:
-    if random.randint(0, .25*60) == 0:
-        balls += [Ball("RSC/AI/images/ai.png",
-                  [random.randint(0,10), random.randint(0,10)],
-                  [random.randint(100, width-100), random.randint(100, height-100)])
-                  ]
+                    
+        bgColor = r,g,b
+        screen.fill(bgColor)
+        screen.blit(bgImage, bgRect)
+        screen.blit(startButton.image, startButton.rect)
+        pygame.display.flip()
+        clock.tick(60)
         
-for ball in balls:
-    ball.update(width, height)
+    bgImage = pygame.image.load("images/Screens/Main Screen.png").convert()
+    bgRect = bgImage.get_rect()
     
-for bully in balls:
-    for victem in balls:
-        bully.collideBall(victem)
-         
-    
-
-for ball in balls:
-    if not ball.living:
-        balls.remove(ball)
-    
-bgColor = r,g,b
-screen.fill(bgColor)
-screen.blit(bgImage, bgRect)
-for ball in balls:
-    screen.blit(ball.image, ball.rect)
-    screen.blit(player.image, player.rect)
-#screen.blit(player.image, player.rect)
-    screen.blit(score.image, score.rect)
-pygame.display.flip()
-clock.tick(60)
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: sys.exit()
+            
+        if len(balls) < 10:
+            if random.randint(0, .25*60) == 0:
+                balls += [Ball("RSC/AI/images/ai.png",
+                          [random.randint(0,10), random.randint(0,10)],
+                          [random.randint(100, width-100), random.randint(100, height-100)])
+                          ]
+                
+        for ball in balls:
+            ball.update(width, height)
+            
+        for bully in balls:
+            for victem in balls:
+                bully.collideBall(victem)
+                 
+            
+        
+        for ball in balls:
+            if not ball.living:
+                balls.remove(ball)
+            
+        bgColor = r,g,b
+        screen.fill(bgColor)
+        screen.blit(bgImage, bgRect)
+        for ball in balls:
+            screen.blit(ball.image, ball.rect)
+        screen.blit(player.image, player.rect)
+        screen.blit(score.image, score.rect)
+        pygame.display.flip()
+        clock.tick(60)
