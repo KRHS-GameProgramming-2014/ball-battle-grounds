@@ -1,12 +1,13 @@
+import pygame
 from Ball import Ball
 
 class PlayerBall(Ball):
     def __init__(self, pos):
-        Ball.__init__(self, "images/Player/pballbu.png", [0,0], pos)
-        self.upImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1up.png")]
-        self.downImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1down.png")]
-        self.leftImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1left.png")]
-        self.rightImages = [pygame.image.load("RSC/Objects/images/player_balls/player_ball1right.png")]
+        Ball.__init__(self, "RSC/objects/images/player_balls/player_ball1up.png", [0,0], pos)
+        self.upImages = [pygame.image.load("RSC/objects/images/player_balls/player_ball1up.png")]
+        self.downImages = [pygame.image.load("RSC/objects/images/player_balls/player_ball1down.png")]
+        self.leftImages = [pygame.image.load("RSC/objects/images/player_balls/player_ball1left.png")]
+        self.rightImages = [pygame.image.load("RSC/objects/images/player_balls/player_ball1right.png")]
         self.facing = "up"
         self.changed = False
         self.images = self.upImages
