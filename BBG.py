@@ -7,7 +7,7 @@ from HUD import Score
 from Button import Button
 
 pygame.init()
-#test
+
 clock = pygame.time.Clock()
 
 width = 800 
