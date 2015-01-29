@@ -1,8 +1,8 @@
 import pygame
 import pygame, sys, rando
 class Player():import pygame, sys, random
-    def __init__(self, pnum, screensize):
-        if pnum == 1:
+def __init__(self, pnum, screensize):
+    if pnum == 1:
             pos = [100,100]
             self.upImages = [pygame.image.load("rsc/Player/MU.png"),
                              pygame.image.load("rsc/Player/MU2.png")]
@@ -14,7 +14,7 @@ class Player():import pygame, sys, random
                                 pygame.image.load("rsc/Player/MR2.png")]
             self.facing = "right"
             self.images = self.rightImages
-        else:
+    else:
             pos = [screensize[0]-100, screensize[1]-100]
             self.upImages = [pygame.image.load("rsc/Player/MU.png"),
                              pygame.image.load("rsc/Player/MU2.png")]
