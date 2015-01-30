@@ -23,21 +23,10 @@ class PlayerBall(Ball):
         Ball.update(self, width, height)
         self.animate()
         self.changed = False
+    
     def move(self):
         self.rect = self.rect.move(self.speed)
         
-        if 0 < self.gustCount < self.maxGustCount:
-            self.gustCount += 1
-            self.gust.go(self)
-        elif self.gustCount >= self.maxGustCount:
-            self.gustCount = 0
-            self.gusting = False
-        
-    def attack(self, atk):
-        if atk == "gust" and self.gustCount == 0 and self.gustCoolDown == 0:
-			self.gusting = True
-			self.gust.go(self)
-			self.belchCount += 1
 
     def collideWall(self, width, height):
         if not self.didBounceX:
@@ -97,7 +86,7 @@ class PlayerBall(Ball):
             self.speedx = 0
         elif direction == "left":
             self.facing = "left"
-            self.changed = TrueQ
+            self.changed = True
             self.speedx = -self.maxSpeed
         elif direction == "stop left":
             self.speedx = 0
