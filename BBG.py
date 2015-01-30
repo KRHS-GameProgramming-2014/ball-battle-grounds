@@ -7,7 +7,7 @@ from HUD import Score
 from Button import Button
 
 pygame.init()
-l
+
 clock = pygame.time.Clock()
 
 width = 800 
@@ -35,7 +35,7 @@ score = Score([width-80, height-25], "Score: ", 36)
 run = False
 
 startButton = Button([width/2, height-300], 
-                     "RSC/objects/images/Start Base.png")
+                      "RSC/objects/images/Start Base.png")
 
 while True:
     while not run:
