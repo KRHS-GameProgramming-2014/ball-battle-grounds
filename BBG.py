@@ -21,7 +21,9 @@ screen = pygame.display.set_mode(size)
 bgImage = pygame.image.load("RSC/objects/images/BBG start screen.png").convert()
 bgRect = bgImage.get_rect()
 
-player = Player_ball([width/2, height/2])
+def Player_Ball = ("RSC/AI/images/ai.jpg")
+
+    Player_Ball([width/2, height/2])
 
 balls = []
 balls += [Ball("RSC/AI/images/ai.png", [4,5], [100, 125])]
