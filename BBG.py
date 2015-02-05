@@ -62,8 +62,8 @@ while True:
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
-            
-        if len(balls) < 10:
+    
+        if len(ball) < 10:
             if random.randint(0, .25*60) == 0:
                 balls += [Ball("RSC/AI/images/ai.png",
                           [random.randint(0,10), random.randint(0,10)],
