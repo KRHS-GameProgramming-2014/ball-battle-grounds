@@ -2,6 +2,7 @@ import pygame, sys, random
 from AI_Class1 import AI_class1
 from Ball import Ball
 from Player_Ball import PlayerBall
+from Player import Player
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -21,9 +22,7 @@ screen = pygame.display.set_mode(size)
 bgImage = pygame.image.load("RSC/objects/images/BBG start screen.png").convert()
 bgRect = bgImage.get_rect()
 
-def Player_Ball = ("RSC/AI/images/ai.jpg")
-
-    Player_Ball([width/2, height/2])
+player = Player(1, size)
 
 balls = []
 balls += [Ball("RSC/AI/images/ai.png", [4,5], [100, 125])]
@@ -96,10 +95,10 @@ while True:
         for ball in balls:
             ball.update(width, height)
             
-        for bully in balls:
-            collidePlayer_ball(player)
-            for victem in balls:
-                bully.collideBall(victem)
+        #for bully in balls:
+            #collidePlayer_ball(player)
+            #for victem in balls:
+                #bully.collideBall(victem)
                  
             
         
