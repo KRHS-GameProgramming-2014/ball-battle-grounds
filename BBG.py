@@ -95,10 +95,10 @@ while True:
         for ball in balls:
             ball.update(width, height)
             
-        #for bully in balls:
-            #collidePlayer_ball(player)
-            #for victem in balls:
-                #bully.collideBall(victem)
+        for bully in balls:
+            bully.collidePlayer(player)
+            for victem in balls:
+                bully.collideBall(victem)
                  
             
         

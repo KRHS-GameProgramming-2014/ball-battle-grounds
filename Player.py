@@ -29,6 +29,7 @@ class Player():
         self.didBounceX = False
         self.didBounceY = False
         self.living = True
+        self.radius = (int(self.rect.height/2.0 + self.rect.width/2.0)/2) - 1
             
         
     def update(self, width, height):
