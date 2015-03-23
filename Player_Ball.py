@@ -23,26 +23,30 @@ class PlayerBall(Ball):
         Ball.update(self, width, height)
         self.animate()
         self.changed = False
+    
+    def move(self):
+        self.rect = self.rect.move(self.speed)
         
+
     def collideWall(self, width, height):
         if not self.didBounceX:
-            #print "trying to hit Wall"
+          
             if self.rect.left < 0 or self.rect.right > width:
                 self.speedx = 0
                 self.didBounceX = True
-                #print "hit xWall"
+              
         if not self.didBounceY:
             if self.rect.top < 0 or self.rect.bottom > height:
                 self.speedy = 0
                 self.didBounceY = True
-                #print "hit xWall"
+            
     
     def animate(self):
         if self.waitCount < self.maxWait:
             self.waitCount += 1
         else:
             self.waitCount = 0
-            self.changed = True
+            self.facingChanged = True
             if self.frame < self.maxFrame:
                 self.frame += 1
             else:
@@ -86,6 +90,44 @@ class PlayerBall(Ball):
             self.speedx = -self.maxSpeed
         elif direction == "stop left":
             self.speedx = 0
+
+    def collideWall(self, width, height):
+        if not self.didBounceX:
+            #print "trying to hit Wall"
+            if self.rect.left < 0 or self.rect.right > width:
+                self.speedx = 0
+                self.didBounceX = True
+                #print "hit xWall"
+        if not self.didBounceY:
+            if self.rect.top < 0 or self.rect.bottom > height:
+                self.speedy = 0
+                self.didBounceY = True
+                #print "hit xWall"
+    
+    def animate(self):
+        if self.waitCount < self.maxWait:
+            self.waitCount += 1
+        else:
+            self.waitCount = 0
+            self.changed = True
+            if self.frame < self.maxFrame:
+                self.frame += 1
+            else:
+                self.frame = 0
+        
+        if self.changed:    
+            if self.facing == "up":
+                self.images = self.upImages
+            elif self.facing == "down":
+                self.images = self.downImages
+            elif self.facing == "right":
+                self.images = self.rightImages
+            elif self.facing == "left":
+                self.images = self.leftImages
+            
+            self.image = self.images[self.frame]
+    
+   
 
 
 

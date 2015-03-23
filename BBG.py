@@ -2,6 +2,7 @@ import pygame, sys, random
 from AI_Class1 import AI_class1
 from Ball import Ball
 from Player_Ball import PlayerBall
+from Player import Player
 from HUD import Text
 from HUD import Score
 from Button import Button
@@ -21,7 +22,7 @@ screen = pygame.display.set_mode(size)
 bgImage = pygame.image.load("RSC/objects/images/BBG start screen.png").convert()
 bgRect = bgImage.get_rect()
 
-player = PlayerBall([width/2, height/2])
+player = Player(1, size)
 
 balls = []
 balls += [Ball("RSC/AI/images/ai.png", [4,5], [100, 125])]
@@ -64,6 +65,24 @@ while True:
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_w or event.key == pygame.K_UP:
+                    player.go("up")
+                if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                    player.go("right")
+                if event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                    player.go("down")
+                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                    player.go("left")
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_w or event.key == pygame.K_UP:
+                    player.go("stop up")
+                if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                    player.go("stop right")
+                if event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                    player.go("stop down")
+                if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                    player.go("stop left")
             
         if len(balls) < 10:
             if random.randint(0, .25*60) == 0:
@@ -72,6 +91,8 @@ while True:
                           [random.randint(100, width-100), random.randint(100, height-100)])
                           ]
                 
+        player.update(width, height)  
+        
         for ball in balls:
             ball.update(width, height)
             
