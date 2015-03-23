@@ -52,7 +52,7 @@ class AI_class1(Ball):
                             self.didBounceY = True
                             
                             
-    def collidePlayer_ball(self, other):
+    def collidePlayer(self, other):
         if self != other:
             if self.rect.right > other.rect.left and self.rect.left < other.rect.right:
                 if self.rect.bottom > other.rect.top and self.rect.top < other.rect.bottom:

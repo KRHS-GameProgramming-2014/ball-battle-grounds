@@ -7,6 +7,7 @@ from HUD import Score
 from Button import Button
 
 pygame.init()
+
 clock = pygame.time.Clock()
 
 width = 800 
@@ -34,7 +35,8 @@ score = Score([width-80, height-25], "Score: ", 36)
 run = False
 
 startButton = Button([width/2, height-300], 
-                     "RSC/objects/images/Start Base.png")
+                     "RSC/objects/images/Start Base.png",) 
+                     
 
 while True:
     while not run:
@@ -56,8 +58,8 @@ while True:
         pygame.display.flip()
         clock.tick(60)
         
-    #bgImage = pygame.image.load("images/Screens/Main Screen.png").convert()
-    #bgRect = bgImage.get_rect()
+    bgImage = pygame.image.load("RSC/objects/images/BBG start Screen.png").convert()
+    bgRect = bgImage.get_rect()
     
     while run:
         for event in pygame.event.get():
@@ -74,6 +76,7 @@ while True:
             ball.update(width, height)
             
         for bully in balls:
+            bully.collidePlayer(player)
             for victem in balls:
                 bully.collideBall(victem)
                  
@@ -85,7 +88,7 @@ while True:
             
         bgColor = r,g,b
         screen.fill(bgColor)
-        #screen.blit(bgImage, bgRect)
+        screen.blit(bgImage, bgRect)
         for ball in balls:
             screen.blit(ball.image, ball.rect)
         screen.blit(player.image, player.rect)
