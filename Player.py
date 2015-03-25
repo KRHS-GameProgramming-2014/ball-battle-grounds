@@ -25,6 +25,7 @@ class Player():
         
         self.waitCount = 0
         self.rect = self.image.get_rect()
+        self.radius = (int(self.rect.height/2.0 + self.rect.width/2.0)/2) - 1
         self.maxSpeed = 10
         self.speedx = 0
         self.speedy = 0
@@ -45,22 +46,6 @@ class Player():
    
     def move(self):
         self.rect = self.rect.move(self.speed)
-        
-
-
-        if 0 < self.gustCount < self.maxGustCount:
-            self.gustCount += 1
-            self.gust.go(self)
-        elif self.gustCount >= self.maxGustCount:
-            self.gustCount = 0
-            self.gusting = False
-        
-    def attack(self, atk):
-        if atk == "gust" and self.gustCount == 0 and self.gustCoolDown == 0:
-            self.gusting = True
-            self.gust.go(self)
-            self.belchCount += 1
-
 
     def collideWall(self, width, height):
         if not self.didBounceX:
