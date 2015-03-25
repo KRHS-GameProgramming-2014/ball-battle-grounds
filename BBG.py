@@ -7,7 +7,6 @@ from HUD import Text
 from HUD import Score
 from Button import Button
 
-#$gu
 
 pygame.init()
 
