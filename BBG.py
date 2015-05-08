@@ -92,17 +92,19 @@ while True:
                           [random.randint(100, width-100), random.randint(100, height-100)])
                           ]
                 
-        player.update(width, height)  
+        player.update(width, height) 
+        score.update() 
         
         for ball in balls:
             ball.update(width, height)
             
         for bully in balls:
-            bully.collidePlayer(player)
+            if bully.collidePlayer(player):
+                score.increaseScore(5)
             for victem in balls:
                 bully.collideBall(victem)
                  
-            
+            	
         
         for ball in balls:
             if not ball.living:
