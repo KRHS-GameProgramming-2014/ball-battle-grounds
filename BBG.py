@@ -2,7 +2,7 @@ import pygame, sys, random
 from AI_Class1 import AI_class1
 from Ball import Ball
 from Player_Ball import PlayerBall
-from Player2_Ball import Playerball2
+#from Player2_Ball import Player2_ball
 from Player import Player
 from HUD import Text
 from HUD import Score

@@ -1,5 +1,5 @@
 import pygame
-from Player_Ball import Player_Ball 
+from Ball import Ball 
 
 class Player2_Ball(Ball):
     def __init__(self, pos):
